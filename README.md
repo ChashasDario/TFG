@@ -1,6 +1,6 @@
 # Trabajo de Fin de Grado Superior en Administración de Sistemas: Uso de Terraform y Google Kubernetes Engine
 
-![Imagen Docker y Terraform](/images/1.png)
+![Imagen Docker y Terraform](./images/1.png)
 
 - [Introducción](#introducción)
 - [Metodología](#metodología)
