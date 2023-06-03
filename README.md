@@ -3,6 +3,11 @@
 
 ![Imagen Docker y Terraform](./images/1.png)
 
+Para ejecutar terraform con la cuenta de servicio:
+
+docker run -it --rm -w /app -v $(pwd):/app --env-file=.env --entrypoint sh hashicorp/terraform:1.3.0
+
+
 - [Introducción](#introducción)
 - [Metodología](#metodología)
 - [Implementación](#implementación)
@@ -53,6 +58,18 @@ La implementación comienza con la creación de la infraestructura necesaria uti
 
 ![Imagen Metodología]((/images/4.png)
 
-Para ejecutar terraform con la cuenta de servicio:
 
-docker run -it --rm -w /app -v $(pwd):/app --env-file=.env --entrypoint sh hashicorp/terraform:1.3.0
+## Conclusión
+
+A lo largo de este Trabajo de Fin de Grado Superior, hemos demostrado la versatilidad y eficacia de Terraform y Google Kubernetes Engine en la creación y gestión de infraestructuras en la nube. Hemos llevado a cabo un despliegue completo de una red, una subred, un clúster de GKE y aplicaciones contenidas, específicamente un servidor de WordPress y una base de datos MariaDB.
+
+El uso de Terraform permitió una gestión de la infraestructura eficiente y reproducible. Con su sintaxis declarativa, pudimos definir y crear nuestra infraestructura de red con precisión. 
+
+GKE, por otro lado, se mostró como una solución robusta y escalable para la orquestación de contenedores. La creación del clúster y el despliegue de las aplicaciones se llevó a cabo de manera sencilla y eficiente, lo que permitió un control granular sobre los recursos y una excelente escalabilidad.
+
+El uso combinado de estas dos poderosas herramientas proporciona una solución completa para la creación, despliegue y gestión de aplicaciones en la nube. Este proyecto ha demostrado que, con el enfoque correcto y las herramientas adecuadas, es posible construir una infraestructura en la nube robusta y escalable de forma eficiente.
+
+En resumen, este proyecto ha sido una oportunidad para explorar y aplicar las capacidades de Terraform y GKE en un escenario real. Los resultados obtenidos demuestran el potencial de estas herramientas para simplificar y optimizar la administración de sistemas en la nube. 
+
+
+
