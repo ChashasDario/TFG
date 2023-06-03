@@ -1,0 +1,8 @@
+# Terraform files
+*.terraform*
+
+# Env files
+*.env
+
+# Credentials json
+*.json
