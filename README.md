@@ -1,11 +1,6 @@
-Para ejecutar terraform con la cuenta de servicio:
-
-docker run -it --rm -w /app -v $(pwd):/app --env-file=.env --entrypoint sh hashicorp/terraform:1.3.0
-
 # Trabajo de Fin de Grado Superior en Administración de Sistemas: Uso de Terraform y Google Kubernetes Engine
 
-![Imagen Docker y Terraform](https://example.com/path-to-your-image/docker_terraform.png)
-## Índice
+![Imagen Docker y Terraform](/images/1.png)
 
 - [Introducción](#introducción)
 - [Metodología](#metodología)
@@ -24,7 +19,7 @@ La meta de este proyecto es demostrar el uso de estas herramientas para implemen
 
 Además, para facilitar el acceso a los Pods de Kubernetes y proporcionar una interfaz amigable para el usuario, se implementa un balanceador de carga. Esto permite visualizar el sitio web de WordPress y experimentar el resultado final de la infraestructura creada.
 
-![Imagen Introducción](https://example.com/path-to-your-image/introduction.png)
+![Imagen Introducción](/images/2.png)
 ## Metodología
 
 El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para asegurar un despliegue exitoso y eficiente de la infraestructura.
@@ -43,7 +38,7 @@ El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para
 
 A través de este proceso metodológico, se pudo implementar una infraestructura de red robusta y eficiente que cumple con los objetivos del proyecto.
 
-![Imagen Metodología](https://example.com/path-to-your-image/methodology.png)
+![Imagen Metodología]((/images/3.png)
 
 ## Implementación
 
@@ -55,4 +50,8 @@ La implementación comienza con la creación de la infraestructura necesaria uti
 - [Archivo del cluster](/modules/gke/main.tf)
 - [Archivos despligue pods](/modules/manifest/)
 
-![Imagen Metodología](https://example.com/path-to-your-image/methodology.png)
+![Imagen Metodología]((/images/4.png)
+
+Para ejecutar terraform con la cuenta de servicio:
+
+docker run -it --rm -w /app -v $(pwd):/app --env-file=.env --entrypoint sh hashicorp/terraform:1.3.0
