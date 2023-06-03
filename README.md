@@ -4,6 +4,7 @@ docker run -it --rm -w /app -v $(pwd):/app --env-file=.env --entrypoint sh hashi
 
 # Trabajo de Fin de Grado Superior en Administración de Sistemas: Uso de Terraform y Google Kubernetes Engine
 
+![Imagen Docker y Terraform](https://example.com/path-to-your-image/docker_terraform.png)
 ## Índice
 
 - [Introducción](#introducción)
@@ -15,8 +16,6 @@ docker run -it --rm -w /app -v $(pwd):/app --env-file=.env --entrypoint sh hashi
 
 ## Introducción
 
-## Introducción
-
 En la actual era de la digitalización, la administración eficiente de sistemas y recursos informáticos es de suma importancia. Las empresas de todo el mundo dependen cada vez más de infraestructuras sólidas y seguras para sus operaciones diarias, y la demanda de soluciones eficientes y escalables sigue creciendo. Para abordar este reto, este proyecto de Trabajo de Fin de Grado Superior en Administración de Sistemas se enfoca en la investigación y aplicación de Terraform y Google Kubernetes Engine (GKE), dos herramientas prominentes en el ámbito de la administración de sistemas.
 
 Terraform es una herramienta de infraestructura como código (IaC) que permite a los usuarios definir y proporcionar centros de datos utilizando una sintaxis de alto nivel, lo que simplifica la gestión y orquestación de recursos de infraestructura. GKE, por otro lado, es un servicio de administración de Kubernetes que simplifica la implementación, administración y escalado de aplicaciones contenerizadas.
@@ -25,9 +24,7 @@ La meta de este proyecto es demostrar el uso de estas herramientas para implemen
 
 Además, para facilitar el acceso a los Pods de Kubernetes y proporcionar una interfaz amigable para el usuario, se implementa un balanceador de carga. Esto permite visualizar el sitio web de WordPress y experimentar el resultado final de la infraestructura creada.
 
-
-## Metodología
-
+![Imagen Introducción](https://example.com/path-to-your-image/introduction.png)
 ## Metodología
 
 El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para asegurar un despliegue exitoso y eficiente de la infraestructura.
@@ -46,7 +43,7 @@ El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para
 
 A través de este proceso metodológico, se pudo implementar una infraestructura de red robusta y eficiente que cumple con los objetivos del proyecto.
 
-
+![Imagen Metodología](https://example.com/path-to-your-image/methodology.png)
 
 ## Implementación
 
@@ -57,3 +54,5 @@ La implementación comienza con la creación de la infraestructura necesaria uti
 - [Archivo de la Red](/modules/vpc/main.tf)
 - [Archivo del cluster](/modules/gke/main.tf)
 - [Archivos despligue pods](/modules/manifest/)
+
+![Imagen Metodología](https://example.com/path-to-your-image/methodology.png)
