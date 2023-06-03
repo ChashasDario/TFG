@@ -1,7 +1,7 @@
 # Trabajo de Fin de Grado Superior en Administración de Sistemas: Uso de Terraform y Google Kubernetes Engine
 
 
-![Imagen Docker y Terraform](./images/1.png)
+![Imagen Terraform](./images/1.png)
 
 Para ejecutar terraform con la cuenta de servicio:
 
@@ -14,6 +14,7 @@ docker run -it --rm -w /app -v $(pwd):/app --env-file=.env --entrypoint sh hashi
 - [Resultados](#resultados)
 - [Conclusión](#conclusión)
 - [Referencias](#referencias)
+- [Ejemplo](#Ejemplo)
 
 ## Introducción
 
@@ -25,7 +26,7 @@ La meta de este proyecto es demostrar el uso de estas herramientas para implemen
 
 Además, para facilitar el acceso a los Pods de Kubernetes y proporcionar una interfaz amigable para el usuario, se implementa un balanceador de carga. Esto permite visualizar el sitio web de WordPress y experimentar el resultado final de la infraestructura creada.
 
-![Imagen Introducción](/images/2.png)
+![Imagen Introducción](./images/2.png)
 ## Metodología
 
 El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para asegurar un despliegue exitoso y eficiente de la infraestructura.
@@ -44,9 +45,7 @@ El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para
 
 A través de este proceso metodológico, se pudo implementar una infraestructura de red robusta y eficiente que cumple con los objetivos del proyecto.
 
-![Imagen Metodología]((/images/3.png)
-
-## Implementación
+![Imagen Metodología]((/.images/3.png)
 
 ### Terraform
 
@@ -56,7 +55,7 @@ La implementación comienza con la creación de la infraestructura necesaria uti
 - [Archivo del cluster](/modules/gke/main.tf)
 - [Archivos despligue pods](/modules/manifest/)
 
-![Imagen Metodología]((/images/4.png)
+![Imagen Metodología]((./images/4.png)
 
 
 ## Conclusión
@@ -70,6 +69,43 @@ GKE, por otro lado, se mostró como una solución robusta y escalable para la or
 El uso combinado de estas dos poderosas herramientas proporciona una solución completa para la creación, despliegue y gestión de aplicaciones en la nube. Este proyecto ha demostrado que, con el enfoque correcto y las herramientas adecuadas, es posible construir una infraestructura en la nube robusta y escalable de forma eficiente.
 
 En resumen, este proyecto ha sido una oportunidad para explorar y aplicar las capacidades de Terraform y GKE en un escenario real. Los resultados obtenidos demuestran el potencial de estas herramientas para simplificar y optimizar la administración de sistemas en la nube. 
+
+## Ejemplo
+
+Pequeño ejemplo de un despliegue de 2 contenedores de cloudrun con red interna :
+
+provider "google" {
+  credentials = file("<YOUR_CREDENTIAL_FILE>.json")
+  project     = "<YOUR_PROJECT_ID>"
+  region      = "us-central1"
+}
+
+resource "google_compute_network" "vpc_network" {
+  name = "terraform-network"
+}
+
+resource "google_compute_instance" "vm_instance" {
+  count        = 2
+  name         = "terraform-instance-${count.index}"
+  machine_type = "f1-micro"
+  zone         = "us-central1-a"
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+
+  network_interface {
+    network = google_compute_network.vpc_network.name
+
+    access_config {
+      // Include this section to give the VM an external IP address
+    }
+  }
+
+  metadata_startup_script = count.index == 0 ? "apt-get update && apt-get -y install inetutils-ping && ping -c 4 ${google_compute_instance.vm_instance.1.network_interface.0.network_ip}" : "apt-get update && apt-get -y install inetutils-ping && ping -c 4 ${google_compute_instance.vm_instance.0.network_interface.0.network_ip}"
+}
 
 
 
