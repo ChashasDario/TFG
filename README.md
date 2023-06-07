@@ -72,6 +72,7 @@ En resumen, este proyecto ha sido una oportunidad para explorar y aplicar las ca
 
 Pequeño ejemplo de un despliegue de 2 contenedores de cloudrun con red interna :
 
+```
 provider "google" {
   credentials = file("credentials.json")
   project     = var.id
@@ -130,5 +131,6 @@ resource "google_compute_instance" "vm_instance" {
 
   metadata_startup_script = "apt-get update && apt-get -y install inetutils-ping"
 }
+```
 
-![Imagen Terraform](./images/1.png)
+![Imagen Terraform](./images/5.png)
