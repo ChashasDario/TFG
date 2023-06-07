@@ -75,24 +75,50 @@ En resumen, este proyecto ha sido una oportunidad para explorar y aplicar las ca
 Pequeño ejemplo de un despliegue de 2 contenedores de cloudrun con red interna :
 
 provider "google" {
-  credentials = file("<YOUR_CREDENTIAL_FILE>.json")
-  project     = "<YOUR_PROJECT_ID>"
-  region      = "us-central1"
+  credentials = file("credentials.json")
+  project     = var.id
+  region      = "europe-west2"
 }
 
 resource "google_compute_network" "vpc_network" {
   name = "terraform-network"
 }
 
+# Permite conectarse 
+resource "google_compute_firewall" "default" {
+  name    = "terraform-allow-ssh" 
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
+
+#permite comando ping
+resource "google_compute_firewall" "icmp" {
+  name    = "terraform-allow-icmp"
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "icmp"
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
+
+
 resource "google_compute_instance" "vm_instance" {
   count        = 2
   name         = "terraform-instance-${count.index}"
   machine_type = "f1-micro"
-  zone         = "us-central1-a"
+  zone         = "europe-west2-a"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "debian-cloud/debian-11"
     }
   }
 
@@ -104,8 +130,8 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 
-  metadata_startup_script = count.index == 0 ? "apt-get update && apt-get -y install inetutils-ping && ping -c 4 ${google_compute_instance.vm_instance.1.network_interface.0.network_ip}" : "apt-get update && apt-get -y install inetutils-ping && ping -c 4 ${google_compute_instance.vm_instance.0.network_interface.0.network_ip}"
+  metadata_startup_script = "apt-get update && apt-get -y install inetutils-ping"
 }
 
-
+![Imagen Metodología]((./images/5.png)
 
