@@ -26,7 +26,7 @@ La meta de este proyecto es demostrar el uso de estas herramientas para implemen
 
 Además, para facilitar el acceso a los Pods de Kubernetes y proporcionar una interfaz amigable para el usuario, se implementa un balanceador de carga. Esto permite visualizar el sitio web de WordPress y experimentar el resultado final de la infraestructura creada.
 
-![Imagen Introducción](./images/2.png)
+![Imagen Terraform](./images/2.png)
 ## Metodología
 
 El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para asegurar un despliegue exitoso y eficiente de la infraestructura.
@@ -45,8 +45,7 @@ El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para
 
 A través de este proceso metodológico, se pudo implementar una infraestructura de red robusta y eficiente que cumple con los objetivos del proyecto.
 
-![Imagen Metodología]((/.images/3.png)
-
+![Imagen Terraform](./images/3.png)
 ### Terraform
 
 La implementación comienza con la creación de la infraestructura necesaria utilizando Terraform. Los archivos de Terraform que definen la red virtual y la subred se pueden encontrar en el repositorio:
@@ -55,8 +54,7 @@ La implementación comienza con la creación de la infraestructura necesaria uti
 - [Archivo del cluster](/modules/gke/main.tf)
 - [Archivos despligue pods](/modules/manifest/)
 
-![Imagen Metodología]((./images/4.png)
-
+![Imagen Terraform](./images/4.png)
 
 ## Conclusión
 
@@ -133,5 +131,4 @@ resource "google_compute_instance" "vm_instance" {
   metadata_startup_script = "apt-get update && apt-get -y install inetutils-ping"
 }
 
-![Imagen Metodología]((./images/5.png)
-
+![Imagen Terraform](./images/1.png)
