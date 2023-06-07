@@ -26,8 +26,28 @@ La meta de este proyecto es demostrar el uso de estas herramientas para implemen
 
 Además, para facilitar el acceso a los Pods de Kubernetes y proporcionar una interfaz amigable para el usuario, se implementa un balanceador de carga. Esto permite visualizar el sitio web de WordPress y experimentar el resultado final de la infraestructura creada.
 
+
+
+## Potencial
+
+Terraform es una herramienta poderosa que ofrece diversas ventajas en la administración de infraestructuras en la nube. Algunas de las principales ventajas de utilizar Terraform incluyen:
+
+1. **Infraestructura como código (IaC):** Terraform permite definir y gestionar la infraestructura de manera declarativa, utilizando código en lugar de configuraciones manuales. Esto proporciona un mayor control sobre la infraestructura y permite una gestión eficiente y reproducible.
+
+2. **Orquestación y automatización:** Con Terraform, puedes definir y orquestar la creación, modificación y eliminación de recursos de infraestructura de manera sencilla. Puedes automatizar tareas repetitivas, lo que ahorra tiempo y reduce el riesgo de errores humanos.
+
+3. **Multiplataforma y proveedor-agnosticismo:** Terraform es compatible con varios proveedores de servicios en la nube, lo que te permite desplegar y gestionar infraestructuras en diferentes entornos y proveedores de manera consistente. Puedes utilizar la misma sintaxis de Terraform para desplegar recursos en proveedores como AWS, Google Cloud, Azure y más.
+
+4. **Despliegue en varios servidores en la nube:** Una de las características destacadas de Terraform es la capacidad de desplegar y gestionar infraestructuras en varios servidores en la nube de forma simultánea. Puedes definir y mantener recursos en diferentes proveedores y regiones de manera centralizada, lo que brinda flexibilidad y escalabilidad.
+
+Al combinar Terraform con servicios como Google Kubernetes Engine (GKE), puedes aprovechar aún más el potencial de la herramienta. GKE simplifica la implementación, administración y escalado de aplicaciones contenerizadas, proporcionando un entorno robusto para ejecutar tus servicios. Puedes utilizar Terraform para definir y orquestar tanto la infraestructura subyacente como el despliegue de tus aplicaciones en GKE, lo que permite una administración completa y automatizada de todo el ciclo de vida de tu infraestructura en la nube.
+
+En conclusión, Terraform ofrece un potencial significativo en la administración de sistemas al proporcionar una forma declarativa de definir y gestionar infraestructuras en la nube. Su capacidad para desplegar en varios servidores en la nube, combinado con herramientas como GKE, permite construir y mantener infraestructuras escalables y eficientes en entornos de nube heterogéneos.
+
 ![Imagen Terraform](./images/2.png)
+
 ## Metodología
+
 
 El proyecto se desarrolló utilizando un enfoque sistemático y paso a paso para asegurar un despliegue exitoso y eficiente de la infraestructura.
 
